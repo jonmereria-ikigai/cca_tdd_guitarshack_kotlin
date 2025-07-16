@@ -31,7 +31,7 @@
       <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-maven-plugin</artifactId>
-        <version>1.6.21</version>
+        <version>${kotlin.version}</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -48,6 +48,9 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <jvmTarget>1.8</jvmTarget>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -68,10 +71,6 @@
       <version>1.6.21</version>
       <scope>test</scope>
       <exclusions>
-        <exclusion>
-          <artifactId>kotlin-test</artifactId>
-          <groupId>org.jetbrains.kotlin</groupId>
-        </exclusion>
         <exclusion>
           <artifactId>junit-jupiter-api</artifactId>
           <groupId>org.junit.jupiter</groupId>
@@ -98,9 +97,16 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-test</artifactId>
+      <version>1.9.24</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <properties>
     <kotlin.code.style>official</kotlin.code.style>
+    <kotlin.version>1.9.24</kotlin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
   </properties>
